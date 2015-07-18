@@ -1,0 +1,167 @@
+//------------------------------------------forms
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+
+	.row {
+		margin: 0 0 10px;
+	}
+
+	&.action {
+		margin-top: 20px;
+	}
+}
+
+#{$all-text-inputs} {
+	font-family: $oswaldLight;
+	@include fontsize(1.8);
+	text-transform: uppercase;
+	width: 100%;
+	padding: 5px;
+	background: none;
+	border-bottom: 1px solid rgba(0,0,0,.3);
+	outline: 0;
+	@include transition(all 400ms ease);
+	border-radius: 0;
+	box-shadow: none;
+	color: #333;
+
+	@include placeholder {
+		color: #999;
+	}
+
+	&:invalid {
+		background: none;
+		border-color: red;
+	}
+
+}
+
+#{$all-text-inputs-focus} {
+	border-bottom: 1px solid rgba(0,0,0,.9);
+}
+
+textarea {
+	font-family: $oswaldLight;
+	@include fontsize(1.8);
+	text-transform: uppercase;
+	width: 100%;
+	padding: 5px;
+	min-height: 150px;
+	height: 150px;
+	max-height: 250px;
+	border-bottom: 1px solid rgba(0,0,0,.3);
+	resize: vertical;
+	@include transition(all 400ms ease);
+	outline: 0;
+	border-radius: 0;
+
+	@include placeholder {
+		color: #999;
+	}
+
+	&:focus {
+		border-bottom: 1px solid rgba(0,0,0,.9);
+	}
+}
+
+::-webkit-resizer{
+	padding: 0 10px 10px 0;
+}
+
+label {
+	font-family: $oswaldLight;
+	text-transform: uppercase;
+	@include fontsize(1.8);
+	cursor: pointer;
+}
+
+// custom checkbox/radio
+.inputgroup {
+	margin: 0 0 30px;
+}
+
+.checkboxlabel,
+.radiolabel {
+	margin: 0 0 0 20px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+input[type="checkbox"]:checked + span:before { 
+	font-family: Flaticon;
+	content: "\e000";
+	border-color: #000;
+	line-height: 21px;
+}
+
+input[type="radio"]:checked + span:before { 
+	background: #fff;
+}
+
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span { 
+	color: #000;
+}
+
+input[type="checkbox"]:focus + span:before,
+input[type="radio"]:focus + span:before { 
+	border-color: rgba(0,0,0,.4);
+}
+
+.checkboxlabel span:before,
+.radiolabel span:before {
+	content: "";
+	display: inline-block;
+    width: 16px; 
+    height: 16px; 
+    margin-right: 10px; 
+    margin-left: -20px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,.2);
+    vertical-align: -1px;
+    @include transition(all 400ms ease);
+}
+
+.radiolabel span:before {
+	background: transparent;
+	border-radius: 16px;
+}
+
+
+//subscribe form elements
+#subscribe-form {	
+
+	input[type="checkbox"]:checked + span:before,
+	input[type="radio"]:checked + span:before { 
+		border-color: #fff;
+	}
+
+	input[type="checkbox"]:checked + span,
+	input[type="radio"]:checked + span { 
+		color: #fff;
+	}
+
+	input[type="checkbox"]:focus + span:before,
+	input[type="radio"]:focus + span:before { 
+		border-color: rgba(255,255,255,.4);
+	}
+
+	.checkboxlabel span:before,
+	.radiolabel span:before {
+	    border: 1px solid rgba(255,255,255,.2);
+	}
+
+}

@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'oswaldlight';
+    src: url('fonts/oswald-light-webfont.eot');
+    src: url('fonts/oswald-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-light-webfont.woff2') format('woff2'),
+         url('fonts/oswald-light-webfont.woff') format('woff'),
+         url('fonts/oswald-light-webfont.ttf') format('truetype'),
+         url('fonts/oswald-light-webfont.svg#oswaldlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'oswaldbook';
+    src: url('fonts/oswald-regular-webfont.eot');
+    src: url('fonts/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-regular-webfont.woff2') format('woff2'),
+         url('fonts/oswald-regular-webfont.woff') format('woff'),
+         url('fonts/oswald-regular-webfont.ttf') format('truetype'),
+         url('fonts/oswald-regular-webfont.svg#oswaldbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'oswaldbold';
+    src: url('fonts/oswald-bold-webfont.eot');
+    src: url('fonts/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-bold-webfont.woff2') format('woff2'),
+         url('fonts/oswald-bold-webfont.woff') format('woff'),
+         url('fonts/oswald-bold-webfont.ttf') format('truetype'),
+         url('fonts/oswald-bold-webfont.svg#oswaldbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//font icons
+@font-face {
+    font-family: "Flaticon";
+    src: url("fonts/flaticon.eot");
+    src: url("fonts/flaticon.eot#iefix") format("embedded-opentype"),
+         url("fonts/flaticon.woff") format("woff"),
+         url("fonts/flaticon.ttf") format("truetype"),
+         url("fonts/flaticon.svg") format("svg");
+         font-weight: normal;
+         font-style: normal;
+}
+
+.flaticon-check35:before {
+    content: "\e000";
+}
+.flaticon-comment8:before {
+    content: "\e001";
+}
+.flaticon-comments8:before {
+    content: "\e002";
+}
+.flaticon-do10:before {
+    content: "\e003";
+}
+.flaticon-email20:before {
+    content: "\e004";
+}
+.flaticon-facebook30:before {
+    content: "\e005";
+}
+.flaticon-facebook55:before {
+    content: "\e006";
+}
+.flaticon-favorite21:before {
+    content: "\e007";
+}
+.flaticon-info2:before {
+    content: "\e008";
+}
+.flaticon-instagram12:before {
+    content: "\e009";
+}
+.flaticon-iphone26:before {
+    content: "\e00a";
+}
+.flaticon-keyboard53:before {
+    content: "\e00b";
+}
+.flaticon-linkedin12:before {
+    content: "\e00c";
+}
+.flaticon-next15:before {
+    content: "\e00d";
+}
+.flaticon-pinterest34:before {
+    content: "\e00e";
+}
+.flaticon-placeholder8:before {
+    content: "\e00f";
+}
+.flaticon-plus79:before {
+    content: "\e010";
+}
+.flaticon-social19:before {
+    content: "\e011";
+}

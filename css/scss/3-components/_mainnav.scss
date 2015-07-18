@@ -1,0 +1,151 @@
+//----------------------------------------- main navigation
+
+header nav {
+	background: #212121;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	@include transition(all 400ms ease);
+	@include transform(translateY(-100%));
+	display: block;
+	box-shadow: inset 0 0 50px rgba(0,0,0,.5);
+	padding: 10px 0;
+
+	.shownav & {
+		top: 70px;
+		@include transform(translateY(0%));
+	}
+
+	@include breakpoint(large) {
+		background: transparent;
+		@include position(absolute, 0 0 null auto);
+		width: auto;
+		@include transform(translateY(0%));
+		box-shadow: none;
+		padding: 0;
+
+		.shownav & {
+			top: 0;
+		}
+	}
+
+	ul {
+		margin: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			float: left;
+			@include fontsize(1.8);
+			font-family: $oswaldLight;
+			text-transform: uppercase;
+			margin: 0;
+			width: 100%;
+			padding: 0 10%;
+
+			@include breakpoint(large) {
+				width: auto;
+				margin: 0 0 0 20px;
+				padding: 0;
+				display: inline;
+				float: none;
+			}
+
+			&.current_page_item a {
+				color: $green;
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				position: relative;
+				padding: 10px 5px;
+				display: inline-block;
+				overflow: hidden;
+				vertical-align: top;
+
+				&:before {
+					content: "";
+					@include position(absolute, null -100% 0px null);
+					background: #fff;
+					display: block;
+					width: 100%;
+					height: 1px;
+					@include transition(all 400ms ease);
+				}
+
+				&:hover {
+					&:before {
+						right: 0;
+					}
+				}
+
+				@include breakpoint(large) {
+					padding: 2px 5px;
+				}
+
+			}
+		}
+	}
+}
+
+#mob-nav {
+	@include user-select(none);
+	@include position(fixed, 24px 20px null null);
+	cursor: pointer;
+	z-index: 100;
+
+
+	@include breakpoint(large) {
+		display: none;
+	}
+
+	span {
+		display: inline-block;
+		width: 32px;
+		height: 2px;
+		background: #fff;
+		margin: 8px 0;
+		@include transition(all 400ms ease);
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			width: 32px;
+			height: 2px;
+			background: #fff;
+			@include position(absolute, 0 0 null null);
+			@include transition(all 250ms ease);
+		}
+
+		&:before {
+			top: 0;
+		}
+		&:after {
+			top: 16px;
+		}
+	}
+
+	.shownav & {
+		@include transform(scale3d(0.8, 0.8, 0.8));
+
+		span {
+			background: transparent;
+		}
+		span:before, 
+		span:after {
+			@include transform-origin(center center);
+			top: 8px;
+			width: 32px;
+		}
+		span:before {
+			@include transform(rotate3d(0, 0, 1, 45deg))
+		}
+		span:after {
+			@include transform(rotate3d(0, 0, 1, -45deg))
+		}
+	}
+}

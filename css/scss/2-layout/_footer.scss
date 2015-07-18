@@ -1,0 +1,78 @@
+/* ------------------------------------------------------------------ footer */
+footer {
+	background: #e8e7e7;
+	padding: 15px 20px 7px;
+	@include fontsize(1.6);
+
+	@include breakpoint(large) {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	.copy {
+		font-family: $oswaldBook;
+		text-transform: uppercase;
+		margin: 5px 0 0;
+		text-align: center;
+
+		@include breakpoint(large) {
+			display: inline-block;
+			text-align: left;
+		}
+
+		span {
+			font-family: $openSans;
+			vertical-align: center;
+		}
+	}
+
+	ul {
+		margin: 10px 0 10px;
+		text-align: center;
+
+		@include breakpoint(large) {
+			margin: 0;
+			float: right;
+			text-align: left;
+		}
+
+		li {
+			list-style: none;
+			display: inline-block;
+			margin-left: 5px;
+
+			a {
+				display: inline-block;
+				overflow: hidden;
+				font-size: 0;
+				text-decoration: none;
+				padding: 8px;
+				@include transition(all 400ms ease);
+
+				&:hover {
+					background: #cdcdcd;
+				} 
+
+				&:before {
+					display: inline-block;
+					font-family: "Flaticon";
+					@include fontsize(1.6);
+					color: #000;
+				}
+			}
+
+			&.facebook a:before {
+				content: "\e006";
+			}
+			&.twitter a:before {
+				content: "\e011";
+			}
+			&.pinterest a:before {
+				content: "\e00e";
+			}
+			&.instagram a:before {
+				content: "\e009";
+			}
+		}
+	}
+}

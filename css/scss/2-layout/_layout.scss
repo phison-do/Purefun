@@ -1,0 +1,126 @@
+/*** DEFAULT STYLESHEET ***/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @include box-sizing(border-box);
+}
+
+/* ------------------------------------------------------------------ GENERAL */
+
+html, body, #wrapper {
+    height: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #fff;    
+    color: #555;
+    font-family: $openSans;
+    @include fontsize(1.4);
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+    padding-top: 70px;
+
+    @include breakpoint(large) {
+        padding: 0;
+    }
+
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $oswaldBook;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: normal;
+
+    a {
+        color: #000;
+        text-decoration: none;
+        @include transition(all .2s ease);
+        
+        &:hover {
+            text-decoration: underline;
+        }        
+    }
+}
+
+h1 {
+    font-family: $oswaldBold;
+    @include fontsize(2.6);
+    font-weight: bold;
+}
+
+h2 {
+    @include fontsize(2.0);
+}
+
+h3 {
+    @include fontsize(1.8);
+}
+
+h4, h5 {
+    @include fontsize(1.4);
+}
+
+/* ------------------------------------------------------------------ Basic */
+
+::-moz-selection { background: #3dc4f1; color: #fff; text-shadow: none; }
+::selection { background: #3dc4f1; color: #fff; text-shadow: none; }
+
+header, footer, section {
+    @include clearfix;
+}
+
+main {
+    background: #fff;
+    position: relative;
+    z-index: 100;
+}
+
+section {
+    padding: 50px 20px;
+    @include breakpoint(large) {
+        padding: 50px 10%;
+    }
+}
+
+.colcontainer {
+    max-width: 1280px;
+    //min-width: 320px;
+    margin: 0 auto;
+}
+
+p, ol, ul {
+    margin: 0 0 20px;
+}
+
+ol, ul {
+    margin-left: 20px;
+}
+
+
+//-------------------------------------------- Page transitions
+
+.m-scene .scene_element {
+    @include animation-duration(400ms);
+    @include transition-timing-function(ease);
+    @include animation-fill-mode(both);
+}
+
+.m-scene .scene_element--fadein {
+    @include animation-name(fadeIn);
+}
+
+.m-scene.is-exiting .scene_element {
+    @include animation-direction(alternate-reverse);
+}

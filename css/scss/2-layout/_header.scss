@@ -1,0 +1,54 @@
+/* ------------------------------------------------------------------ header */
+
+header {
+	@include position(fixed, 0 0px null 0px);
+	width: 100%;
+	z-index: 200;
+	@include transition(all 400ms ease);
+
+	&:after {
+		content: "";
+		background: #000;
+		@include position(fixed, 0 0px null 0px);
+		height: 70px;
+		width: 100%;
+		z-index: 0;
+
+		@include breakpoint(large) {
+			display: none;
+		}
+	}
+
+	@include breakpoint(large) {
+		background: transparent;
+		top: 50px;
+		padding: 20px 10%;
+
+		.stick & {		
+			background: rgba(0,0,0,.9);
+			box-shadow: 0 0 5px rgba(0,0,0,.2);
+			top: 0;
+			@include animation(fadeDown 400ms ease);
+
+			.logo img {
+				width: 100px;
+			}
+		}
+	}
+
+	.colcontainer {
+		position: relative;
+
+		.logo {
+			position: relative;
+			z-index: 100;
+			display: inline-block;
+			margin: 15px 0 0 20px;
+
+			@include breakpoint(large) {
+				margin: 0;
+			}
+		}
+	}
+
+}
