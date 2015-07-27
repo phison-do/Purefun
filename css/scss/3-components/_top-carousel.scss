@@ -1,0 +1,90 @@
+@import 
+		"carousel/_owl.transitions.scss",
+		"carousel/_owl-carousel.scss";
+
+#carousel {
+	margin: 0 0 2em;
+	
+	.item-content {
+		.item-text {
+			background: $green;
+			padding: 20px;
+		}
+
+		img {
+			width: 100%;
+			vertical-align: middle;
+		}
+		h2 {
+			text-transform: uppercase; 
+			margin: 0 0 .5em;
+		}
+		p {
+			margin: 0;
+			font-family: $clearsans;
+		}
+		a {
+			position: relative;
+			display: inline-block;
+			padding: 8px 20px 6px;
+			width: 33.333%;
+			background: #b0cd1d;
+			font-family: $clearsans;
+			color: #fff;
+			text-decoration: none;
+			@include fontsize(1.2);
+			text-align: center;
+			text-transform: lowercase;
+
+			&:before {
+				content: "";
+				display: block;
+				background-repeat: no-repeat;
+				background-size: contain;
+				margin: 0 auto;
+			}
+
+			&:after {
+				content: "";
+				width: 1px;
+				height: 100%;
+				background: #fff;
+				@include position(absolute, 0 null 0 -1px);
+			}
+
+			&.play {
+				&:before {
+					content: "";
+					display: block;
+					width: 0;
+					height: 0;
+					border-top: 12px solid transparent;
+					border-bottom: 12px solid transparent;
+					border-left: 12px solid #fff;
+				}
+				&:after {
+					display: none;
+				}
+			}
+
+			&.awards {
+				&:before {
+					background-image: url(../img/award.png);
+					background-image: url(../img/award.svg);
+					width: 24px;
+					height: 24px;
+				}
+			}
+
+			&.save {
+				&:before {
+					background-image: url(../img/favorite.png);
+					background-image: url(../img/favorite.svg);
+					width: 24px;
+					height: 24px;
+				}
+			}
+		}
+	}
+
+}

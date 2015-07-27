@@ -2,69 +2,26 @@
 
 var _body = $('body');
 
-//-------------------------------------------------- my application: revealing module pattern
+//-------------------------------------- tab navigation
 
-var myApplication = function() {
+function tabs() {
+    var tabItems = $('.tabs li a'),
+        tabContent = $('.tab-content');
 
-    var name = 'Chris',
-        age = '34',
-        status = 'single';
+    tabItems.on('click', function(e){
+        e.preventDefault();
 
-    function getMemberDetails (){
-        console.log(name, age);
-    }
+        var tab_id = $(this).data('tab-id');
 
-    return {
-        get:getMemberDetails
-    }
+        tabItems.removeClass('current');
+        $(this).addClass('current');
 
-}();
+        tabContent.hide();
+        $("#"+tab_id).show();
+    });
+}
 
-//myApplication.get();
-
-//-------------------------------------------------- Anonymous Object Literal return
-
-var Module = (function () {
-  
-    var privateMethod = function () {
-        console.log("private");
-    };
-
-    return {
-
-        publicMethod: function () {
-            privateMethod();
-            console.log("test");
-        }
-
-    };
-
-})();
-
-//Module.publicMethod();
-
-//-------------------------------------------------- Anonymous Object Literal return
-
-var myObjLiteral = {
-
-    defaults: { 
-        name: 'Todd'
-    },
-
-    someMethod: function () {
-        console.log(this.defaults.name);
-    }
-
-};
-
-
-//myObjLiteral.someMethod();
-
-
-
-
-
-//-------------------------------------- navigation
+//-------------------------------------- add data link class to the body on click
 
 var addDataClassToBody = {
 
@@ -88,53 +45,64 @@ var addDataClassToBody = {
 
 };
 
-//-------------------------------------- mainnavigation
+//-------------------------------------- Load games
 
-var addMainDataClassToBody = {
+var loadGames = {
 
     init: function(settings) {
         this.config = {
-            items: $('[data-nav]')
+            url: "js/games.json",
         };
-        // allow overriding the default config
         $.extend(this.config, settings);
         this.setup();
     },
 
     setup: function() {
-        this.config.items.on('click', this.toggleClassName);
+        $.ajax({
+            dataType: "json",
+            url: this.config.url,
+            mimeType: "application/json",
+            success: function(result){
+                var output="<ul>";
+                $.each(result, function(i, obj) {
+
+                    var promo = obj.square.s;
+                    var names = obj.name;
+                    var description = obj.description;
+                    var url = obj.url;
+
+                    output += '<li><img src="' + promo + '" onerror="this.src=\'img/img-error-t.png\'"/>';
+                    output += '<div class="content-text"><h2>'+ names + '</h2>';
+                    output += '<p>' + description + '</p>';
+                    output += '<a class="play" href="'+ url +'">' + 'Play' + '</a></div></li>';
+
+                    $('#latest').html(output);
+                });
+            }
+        });
     },
 
-    toggleClassName: function(e) {
-        _body.fadeOut();
-        _body.addClass($(this).data('nav'));
+}
+
+//-------------------------------------- Load Carousel Json
+
+function customDataSuccess(data){
+    var content = "";
+    for(var i in data){
+
+        var obj = data[i];
+
+        var promo = obj.promo.m;
+        var names = obj.name;
+        var description = obj.description;
+        var url = obj.url;
+
+        content += '<div class="item-content"><img src="' + promo + '" onerror="this.src=\'img/img-error.png\'"/>';
+        content += '<div class="item-text"><h2>'+ names + '</h2>';
+        content += '<p>' + description + '</p></div>';
+        content += '<a class="play" href="'+ url +'">' + 'Play now' + '</a>';
+        content += '<a class="awards" href="#">' + 'Awards' + '</a>';
+        content += '<a class="save" href="#">' + 'save' + '</a></div>';
     }
-
-};
-
-
-//-------------------------------------- sticky header
-
-var stickyHeader = {
-
-    init: function(settings) {
-        this.config = {
-            scrollPos: $('#intro').height(),
-            winTop: $(window).scrollTop(),
-            stickyClass: 'stick',
-            //scroll after nav
-            scrollHeaderPos: $('#intro').height() / 4,
-            headerClass: 'navScroll'
-        };
-        // allow overriding the default config
-        $.extend(this.config, settings);
-        this.setup();
-    },
-
-    setup: function() {
-        (this.config.winTop >= this.config.scrollPos) ? _body.addClass(this.config.stickyClass) : _body.removeClass(this.config.stickyClass);
-        (this.config.winTop >= this.config.scrollHeaderPos) ? _body.addClass(this.config.headerClass) : _body.removeClass(this.config.headerClass);
-    } 
-};
-
-//-------------------------------------- sticky header
+    $("#carousel").html(content);
+}

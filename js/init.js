@@ -1,7 +1,7 @@
 /* ----------------------
 
 author: Phi Son Do
-date: 8/13/2014
+date: 07/2015
 
 ------------------------- */
 
@@ -12,27 +12,37 @@ var iosAgent = navigator.userAgent.match(/(iPod|iPhone|iPad)/);
 $(function(){
 
     addDataClassToBody.init();
-    //addMainDataClassToBody.init();
+    loadGames.init();
+    tabs();
 
-    if(iosAgent) $('html').addClass('-mod-ios');
+	$("#carousel").owlCarousel({
+      	slideSpeed : 300,
+      	paginationSpeed : 400,
+      	autoHeight : true,
+      	singleItem:true,
+		jsonPath : 'js/games.json',
+		jsonSuccess : customDataSuccess,
+		afterAction: function(el){
+			//remove class active
+			this
+			.$owlItems
+			.removeClass('active')
 
-	// var dre = localStorage.getItem("visited");
-	// if(dre != 0){
-	// 	$('#pageloader').addClass("visited");
-	// }
-
+			//add class active
+			this
+			.$owlItems
+			.eq(this.currentItem)
+			.addClass('active')
+		}
+	});
+	
 });
 
 
 $(window).scroll(function(){
-	stickyHeader.init();
 });
 
 
 $(window).load(function(){
-	// $('#pageloader').delay(2000).fadeOut('slow');
-	// $('#pageloader').addClass("pageready");
-	// ($('.pageready').length > 0) ? localStorage.setItem("visited", 1) : localStorage.setItem("visited", 0);
-	//testing pageloader
-	//($('.pageready').length > 0) ? localStorage.setItem("visited", 0) : localStorage.setItem("visited", 0);
+	
 });

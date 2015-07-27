@@ -1,54 +1,72 @@
 /* ------------------------------------------------------------------ header */
 
 header {
-	@include position(fixed, 0 0px null 0px);
-	width: 100%;
-	z-index: 200;
-	@include transition(all 400ms ease);
+	@include position(fixed, 0 0 0 0);
+	background: #fff;
+	height: 95px;
+	text-align: center;
+	padding: 20px 0;
+	border-bottom: 2px solid $lightgrey;
+	z-index: 400;
 
-	&:after {
+	@include breakpoint(small) {
+		height: 80px;
+	}
+
+	&:before {
 		content: "";
-		background: #000;
-		@include position(fixed, 0 0px null 0px);
-		height: 70px;
-		width: 100%;
-		z-index: 0;
+		@include position(absolute, -32px 0 null -5px);
+		display: block;
+		background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjEuMjVweCIgaGVpZ2h0PSI0MnB4IiA+CjxwYXRoIGZpbGw9IiMxOUExREIiIGQ9Ik00NiwwYy01Ljg4LDAtMTEuMTg4LDIuNDIzLTE1LDYuMzE2QzI3LjE4OCwyLjQyMywyMS44OCwwLDE2LDBDNC40MDIsMC01LDkuNDAyLTUsMjFzOS40MDIsMjEsMjEsMjEKCWM1Ljg4LDAsMTEuMTg4LTIuNDIzLDE1LTYuMzE2QzM0LjgxMiwzOS41NzcsNDAuMTIsNDIsNDYsNDJjMTEuNTk4LDAsMjEtOS40MDIsMjEtMjFTNTcuNTk4LDAsNDYsMHoiLz4KPC9zdmc+");
+		background-repeat: repeat-x;
+		height: 42px;
+	}
 
-		@include breakpoint(large) {
+	//save game icon
+	.ico-heart {
+		display: inline-block;
+		color: $lightgrey;
+		position: absolute;
+		left: 20px;
+		top: 32px;
+		text-decoration: none;
+		svg {
+			height: 22px;
+			fill: currentColor;
+		}
+
+		.save-game & {
+			color: red;
+			z-index: 9999;
+			svg {
+				display: none;
+			}
+			&:after {
+				content: "\2039 \00a0 back";
+				color: #fff;
+				display: block;
+				clear: both;
+			}
+		}
+	}
+	
+	//logo
+	.logo {
+		position: relative;
+		display: inline-block;
+		background: url(../img/logo.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 200px;
+		height: 55px;
+		span {
 			display: none;
 		}
-	}
 
-	@include breakpoint(large) {
-		background: transparent;
-		top: 50px;
-		padding: 20px 10%;
-
-		.stick & {		
-			background: rgba(0,0,0,.9);
-			box-shadow: 0 0 5px rgba(0,0,0,.2);
-			top: 0;
-			@include animation(fadeDown 400ms ease);
-
-			.logo img {
-				width: 100px;
-			}
+		@include breakpoint(small) {
+			width: 160px;
+			height: 44px;
 		}
+
 	}
-
-	.colcontainer {
-		position: relative;
-
-		.logo {
-			position: relative;
-			z-index: 100;
-			display: inline-block;
-			margin: 15px 0 0 20px;
-
-			@include breakpoint(large) {
-				margin: 0;
-			}
-		}
-	}
-
 }

@@ -9,7 +9,7 @@
 
 /* ------------------------------------------------------------------ GENERAL */
 
-html, body, #wrapper {
+html, body {
     height: 100%;
 }
 
@@ -19,8 +19,8 @@ html {
 
 body {
     background: #fff;    
-    color: #555;
-    font-family: $openSans;
+    color: #000;
+    font-family: $base;
     @include fontsize(1.4);
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
@@ -29,35 +29,21 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
-    padding-top: 70px;
+    padding-top: 95px;
 
-    @include breakpoint(large) {
-        padding: 0;
+    @include breakpoint(small) {
+        padding-top: 80px;
     }
-
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: $oswaldBook;
-    text-transform: uppercase;
+    font-family: $clearsans;
     color: #000;
     font-weight: normal;
-
-    a {
-        color: #000;
-        text-decoration: none;
-        @include transition(all .2s ease);
-        
-        &:hover {
-            text-decoration: underline;
-        }        
-    }
 }
 
 h1 {
-    font-family: $oswaldBold;
     @include fontsize(2.6);
-    font-weight: bold;
 }
 
 h2 {
@@ -82,45 +68,5 @@ header, footer, section {
 }
 
 main {
-    background: #fff;
-    position: relative;
-    z-index: 100;
-}
-
-section {
-    padding: 50px 20px;
-    @include breakpoint(large) {
-        padding: 50px 10%;
-    }
-}
-
-.colcontainer {
-    max-width: 1280px;
-    //min-width: 320px;
-    margin: 0 auto;
-}
-
-p, ol, ul {
-    margin: 0 0 20px;
-}
-
-ol, ul {
-    margin-left: 20px;
-}
-
-
-//-------------------------------------------- Page transitions
-
-.m-scene .scene_element {
-    @include animation-duration(400ms);
-    @include transition-timing-function(ease);
-    @include animation-fill-mode(both);
-}
-
-.m-scene .scene_element--fadein {
-    @include animation-name(fadeIn);
-}
-
-.m-scene.is-exiting .scene_element {
-    @include animation-direction(alternate-reverse);
+    background: #f8f8f8;
 }

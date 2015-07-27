@@ -1,19 +1,5 @@
 /* -------------------------------------------- Breakpoint */
 
-// $small:         ( max:  767px );
-// $medium:        ( min:  768px );
-// $large:         ( min: 1024px );
-// $small-only:    ( min: map-get($small, min), max: map-get($medium, min) - 1 );
-// $medium-only:   ( min: map-get($medium, min), max: map-get($large, min) - 1 );
- 
-// @mixin breakpoint($map) {
-//     $query: "";
-//     @if map-has-key($map, min) { $query: append($query, "(min-width: #{map-get($map, min)})") }
-//     @if map-has-key($map, min) and map-has-key($map, max) { $query: append($query, "and") }
-//     @if map-has-key($map, max) { $query: append($query, "(max-width: #{map-get($map, max)})") }
-//     @media screen and #{$query} { @content; }
-// }
-
 @mixin breakpoint($media) {
     @if $media == small {
         @media only screen and (max-width: 480px) { @content; }
@@ -44,11 +30,3 @@
     filter: alpha(opacity=$opacity-ie); //IE8
 }
 //@include opacity(0.8);
-
-/* -------------------------------------------- BG color transparancy color */
-@mixin bg-opacity($color, $opacity: 0.3) {
-    background: $color; /* The Fallback */
-    background: rgba($color, $opacity);
-}
-
-//@include bg-opacity(#333, 0.5);

@@ -1,0 +1,108 @@
+#games-list {
+	margin: 0 20px;
+
+	.list-overview {
+		background: #e6e6e6;
+		font-family: $clearsans;
+		padding: 20px;
+
+		ul {
+			list-style: none;
+
+			li {
+				padding: 20px 0 0;
+				margin: 0 0 20px;
+				overflow: hidden;
+				border-top: 1px solid #fff;
+
+				&:first-child {
+					border: none;
+					padding-top: 0;
+				}
+
+				.content-text {
+					overflow: hidden;
+				}
+
+				img {
+					float: left;
+					margin: 0 20px 0 0;
+
+					@include breakpoint(small) {
+						width: 60px;
+					}
+				}
+
+				p {
+					margin: 0 0 1em;
+				}
+				.play {
+					position: relative;
+					display: inline-block;
+					font-family: $clearsans;
+					color: $green;
+					text-decoration: none;
+					@include fontsize(1.8);
+					text-align: center;
+					text-transform: lowercase;
+					color: #ffa509;
+
+					&:before {
+						content: "";
+						display: inline-block;
+						width: 0;
+						height: 0;
+						border-top: 5px solid transparent;
+						border-bottom: 5px solid transparent;
+						border-left: 5px solid #ffa509;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.tab-content {
+		display: none;
+
+		&.current {
+			display: block;
+		}
+	}
+
+	.games-list--tabs {
+		overflow: hidden;
+		ul {
+			list-style: none;
+
+			li {
+				position: relative;
+				background: none;
+				float: left;
+				font-family: $clearsans;
+				@include fontsize(1.8);
+
+				&:after {
+					content: "";
+					width: 1px;
+					height: 100%;
+					background: #fff;
+					@include position(absolute, 0 null 0 -1px);
+				}
+
+				a {
+					display: inline-block;
+					background: $blue;
+					color: #fff;
+					text-decoration: none;
+					padding: 6px 30px;
+					color: rgba(255,255,255,.5);
+
+					&.current {
+						color: rgba(255,255,255,1);
+					}
+				}
+			}
+		}
+	}
+}

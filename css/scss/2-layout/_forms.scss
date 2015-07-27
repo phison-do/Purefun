@@ -15,7 +15,6 @@ fieldset {
 }
 
 #{$all-text-inputs} {
-	font-family: $oswaldLight;
 	@include fontsize(1.8);
 	text-transform: uppercase;
 	width: 100%;
@@ -44,7 +43,6 @@ fieldset {
 }
 
 textarea {
-	font-family: $oswaldLight;
 	@include fontsize(1.8);
 	text-transform: uppercase;
 	width: 100%;
@@ -72,96 +70,7 @@ textarea {
 }
 
 label {
-	font-family: $oswaldLight;
 	text-transform: uppercase;
 	@include fontsize(1.8);
 	cursor: pointer;
-}
-
-// custom checkbox/radio
-.inputgroup {
-	margin: 0 0 30px;
-}
-
-.checkboxlabel,
-.radiolabel {
-	margin: 0 0 0 20px;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    border: 0;
-}
-
-input[type="checkbox"]:checked + span:before { 
-	font-family: Flaticon;
-	content: "\e000";
-	border-color: #000;
-	line-height: 21px;
-}
-
-input[type="radio"]:checked + span:before { 
-	background: #fff;
-}
-
-input[type="checkbox"]:checked + span,
-input[type="radio"]:checked + span { 
-	color: #000;
-}
-
-input[type="checkbox"]:focus + span:before,
-input[type="radio"]:focus + span:before { 
-	border-color: rgba(0,0,0,.4);
-}
-
-.checkboxlabel span:before,
-.radiolabel span:before {
-	content: "";
-	display: inline-block;
-    width: 16px; 
-    height: 16px; 
-    margin-right: 10px; 
-    margin-left: -20px;
-    position: relative;
-    border: 1px solid rgba(0,0,0,.2);
-    vertical-align: -1px;
-    @include transition(all 400ms ease);
-}
-
-.radiolabel span:before {
-	background: transparent;
-	border-radius: 16px;
-}
-
-
-//subscribe form elements
-#subscribe-form {	
-
-	input[type="checkbox"]:checked + span:before,
-	input[type="radio"]:checked + span:before { 
-		border-color: #fff;
-	}
-
-	input[type="checkbox"]:checked + span,
-	input[type="radio"]:checked + span { 
-		color: #fff;
-	}
-
-	input[type="checkbox"]:focus + span:before,
-	input[type="radio"]:focus + span:before { 
-		border-color: rgba(255,255,255,.4);
-	}
-
-	.checkboxlabel span:before,
-	.radiolabel span:before {
-	    border: 1px solid rgba(255,255,255,.2);
-	}
-
 }

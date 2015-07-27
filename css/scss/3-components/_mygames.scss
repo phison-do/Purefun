@@ -1,64 +1,4 @@
-//----------------------------------------- main navigation
-
-.nav-trigger {
-	@include user-select(none);
-	@include position(fixed, 34px 20px null null);
-	cursor: pointer;
-	z-index: 100;
-
-	.show-nav & {
-		z-index: 9999;
-	}
-
-	span {
-		display: inline-block;
-		width: 30px;
-		height: 2px;
-		background: $lightgrey;
-		margin: 8px 0;
-		@include transition(all 400ms ease);
-
-		&:before,
-		&:after {
-			content: "";
-			display: block;
-			width: 30px;
-			height: 2px;
-			background: $lightgrey;
-			@include position(absolute, 0 0 null null);
-			@include transition(all 250ms ease);
-		}
-
-		&:before {
-			top: 0;
-		}
-		&:after {
-			top: 16px;
-		}
-	}
-
-	.show-nav & {
-		@include transform(scale3d(0.8, 0.8, 0.8));
-
-		span {
-			background: transparent;
-		}
-		span:before, 
-		span:after {
-			@include transform-origin(center center);
-			top: 8px;
-			width: 32px;
-		}
-		span:before {
-			@include transform(rotate3d(0, 0, 1, 45deg))
-		}
-		span:after {
-			@include transform(rotate3d(0, 0, 1, -45deg))
-		}
-	}
-}
-
-.navigation {
+.my-games {
 	@include transition(all 400ms ease);
 	@include opacity(0);
 	@include position(fixed, -100% 0 0 0);
@@ -68,7 +8,7 @@
 	padding-top: 20px;
 	z-index: 999;
 
-	.show-nav & {
+	.save-game & {
 		@include opacity(1);
 		@include transform(translateY(0));
 		top: 0;
