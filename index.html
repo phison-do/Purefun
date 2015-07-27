@@ -25,7 +25,6 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="css/style.min.css" />
 
 	<script src="js/vendor/modernizr.2.8.3.min.js"></script>
@@ -35,32 +34,66 @@
 <body>
 
 	<header>
-		Logo
-		Navigation
+		<a href="#" class="ico-heart" data-link="save-game">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 510 510" xml:space="preserve">
+			<g>
+				<g id="favorite">
+					<path d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55
+						C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"/>
+				</g>
+			</g>
+			</svg>
+		</a>
+		<div class="my-games">
+			<h2>My games</h2>
+			<ul>
+				<li class="action"><a href="/purefun/">actie</a></li>
+				<li class="arcade"><a href="/purefun/">arcade</a></li>
+				<li class="sports"><a href="/purefun/">platform</a></li>
+				<li class="puzzle"><a href="/purefun/">puzzel</a></li>
+				<li class="race"><a href="/purefun/">race</a></li>
+			</ul>
+		</div>
+		<a href="#" class="logo" title="Monkey Games">
+			<span>Monkey Games</span>
+		</a>
+		<a href="#" class="nav-trigger" data-link="show-nav"><span></span></a>
+		<div class="navigation">
+			<h2>Categories</h2>
+			<ul>
+				<li class="action"><a href="/purefun/">actie</a></li>
+				<li class="arcade"><a href="/purefun/">arcade</a></li>
+				<li class="sports"><a href="/purefun/">platform</a></li>
+				<li class="puzzle"><a href="/purefun/">puzzel</a></li>
+				<li class="race"><a href="/purefun/">race</a></li>
+			</ul>
+		</div>
 	</header>
 
 	<main>
-		1. show promo, Title & Description
-		2. on hover: show other screenshots 
-		3. on click: load game in iframe in newpage?
+    	<section id="carousel" class="owl-carousel"></section>
 
-		newpage:
-		- iframe 
-		- show other games in list or slider
-		- like button ...
+		<section id="games-list">
+			<div class="games-list--tabs">
+				<ul class="tabs">
+					<li><a href="#" class="current" data-tab-id="latest">Latest</a></li>
+					<li><a href="#" data-tab-id="popular">Popular</a></li>
+				</ul>
+			</div>
+			<div id="latest" class="current list-overview tab-content"></div>
+			<div id="popular" class="list-overview tab-content">
+				<p>Sorry! This list is empty.</p>
+			</div>
+		</section>
 	</main>
 
-	<script src="js/games.json"></script>
+	<footer>
+		<h2>Monki Games</h2>
+	</footer>
+
+	<script src="js/vendor/owl.carousel.min.js"></script>
 	<script src="js/functions.js"></script>
 	<script src="js/init.js"></script>
-
-	<script>
-		$(function() {
-			$.getJSON("js/games.json", function(json) {
-			    console.log(json); // this will show the info it in firebug console
-			});
-		});
-	</script
 
 </body>
 </html>
